@@ -1,14 +1,16 @@
 [build-system]
-requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3", "kaitaiStructCompile"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
-[project]
+[tool.poetry]
 name = "NTMDTRead"
-authors = [{name = "KOLANICH"}]
+version = "0.1.0"
 description = "A set of tools to read NT-MDT files."
+authors = ["KOLANICH <email@example.com>"]
 readme = "ReadMe.md"
+homepage = "https://gitlab.com/KOLANICH/NTMDTRead"
 keywords = ["nt-mdt", "AFM", "SPM", "probe", "microscopy", "mdt", "palette"]
-license = {text = "Unlicense or GPLv3 depending on module"}
+license = "Unlicense or GPLv3 depending on module"
 classifiers = [
 	"Programming Language :: Python",
 	"Programming Language :: Python :: 3",
@@ -19,23 +21,22 @@ classifiers = [
 	"License :: OSI Approved :: GNU General Public License (GPL)",
 	"Operating System :: OS Independent",
 ]
-urls = {Homepage = "https://gitlab.com/KOLANICH/NTMDTRead"}
-dependencies = [
-	"kaitaistruct @ git+https://github.com/kaitai-io/kaitai_struct_python_runtime.git",
-	"numpy",
-	"matplotlib",
-	"pint @ git+https://github.com/hgrecco/pint.git",
-	"configobj",
-	"beautifulsoup4",
-	"lxml",
-	"lazy_object_proxy",
-]
-dynamic = ["version"]
 
-[tool.setuptools]
-zip-safe = true
-packages = ["NTMDTRead", "NTMDTRead.palettes", "NTMDTRead.utils", "NTMDTRead.kaitai"]
-include-package-data = true
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+kaitaistruct = "^0.10"
+numpy = "*"
+matplotlib = "*"
+configobj = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+lazy-object-proxy = "*"
+setuptools = "^70.2.0"
+pantarei = "^0.4.0"
+pint = "^0.24.1"
+
+[tool.poetry.dev-dependencies]
+# Add your development dependencies here
 
 [tool.setuptools_scm]
 
